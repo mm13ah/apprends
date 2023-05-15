@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: apprends
+      POSTGRES_DB: apprends
+    ports:
+      - '5432:5432'
