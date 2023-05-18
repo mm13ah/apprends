@@ -1,11 +1,11 @@
 import {
-  Context,
   checkPassword,
   createAccessToken,
   createRefreshToken,
-} from '@/lib';
+} from '@/lib/crypto';
 import { Arg, Ctx, Mutation, Resolver } from 'type-graphql';
 import { User } from '@generated/type-graphql';
+import { Context } from '@/lib/middleware';
 import { Auth, LoginInput } from './auth.type';
 
 @Resolver(() => User)

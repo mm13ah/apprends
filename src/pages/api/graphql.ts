@@ -6,10 +6,11 @@ import { logger, prisma, schema } from '@/lib';
 const server = new ApolloServer({ schema });
 
 export default startServerAndCreateNextHandler(server, {
-  context: async (req, res) => ({
-    req,
-    res,
-    services: { prisma },
-    log: logger(),
-  }),
+  context: async (req, res) =>
+    Promise.resolve({
+      req,
+      res,
+      services: { prisma },
+      log: logger(),
+    }),
 });

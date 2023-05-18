@@ -3,7 +3,7 @@
 module.exports = {
   reactStrictMode: true,
   webpack: function (config) {
-    config.experiments = { ...config.experiments, topLevelAwait: true };
+    // config.experiments = { ...config.experiments, topLevelAwait: true };
     return config;
   },
 };

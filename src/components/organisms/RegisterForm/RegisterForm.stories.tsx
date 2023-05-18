@@ -8,11 +8,10 @@ export default {
   title: 'Organisms/RegisterForm',
 };
 
-const Template: StoryFn<ComponentProps<typeof RegisterForm>> = (args) => (
-  <RegisterForm {...args} />
+const Template: StoryFn<ComponentProps<typeof RegisterForm>> = () => (
+  <RegisterForm />
 );
 
 export const Basic = Template.bind({});
 Basic.args = {};
 Basic.storyName = 'RegisterForm';
-

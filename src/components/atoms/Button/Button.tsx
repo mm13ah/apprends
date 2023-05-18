@@ -37,7 +37,7 @@ export const Button = ({
   return (
     <button
       type={type ?? 'button'}
-      className={`${buttonStyles} ${className ? className : ''}`}
+      className={`${buttonStyles} ${className || ''}`}
       {...props}
     >
       {text}

@@ -8,11 +8,8 @@ export default {
   title: 'Pages/Login',
 };
 
-const Template: StoryFn<ComponentProps<typeof Login>> = (args) => (
-  <Login {...args} />
-);
+const Template: StoryFn<ComponentProps<typeof Login>> = () => <Login />;
 
 export const Basic = Template.bind({});
 Basic.args = {};
 Basic.storyName = 'Login';
-

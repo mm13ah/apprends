@@ -56,7 +56,9 @@ export const TextInput = ({
           className={inputStyles}
           disabled={disabled}
           aria-invalid={!!error}
-          aria-describedby={error ? `${id}-error` : undefined}
+          aria-describedby={
+            error ? `${id ? `${id}-error` : 'error'}` : undefined
+          }
           {...props}
         />
         {error && (
@@ -69,14 +71,20 @@ export const TextInput = ({
         )}
       </div>
       {error && (
-        <p className="mt-2 text-sm text-red-600" id={`${id}-error`}>
+        <p
+          className="mt-2 text-sm text-red-600"
+          id={id ? `${id}-error` : 'error'}
+        >
           {error}
         </p>
       )}
       {!error &&
         helpText &&
         (typeof helpText === 'string' ? (
-          <p className="mt-2 text-sm text-gray-500" id={`${id}-description`}>
+          <p
+            className="mt-2 text-sm text-gray-500"
+            id={id ? `${id}-description` : 'description'}
+          >
             {helpText}
           </p>
         ) : (

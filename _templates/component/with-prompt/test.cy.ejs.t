@@ -1,5 +1,5 @@
 ---
-to: src/components/<%=atomic%>s/<%=name%>/<%=name%>.cy.test.tsx
+to: "<%= cypress ? `src/components/${atomic}s/${name}/${name}.test.cy.tsx` : null %>"
 ---
 import * as stories from './<%=name%>.stories';
 import { composeStories } from '@storybook/testing-react';

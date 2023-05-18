@@ -12,47 +12,43 @@ export const RouteGuard = ({ children }: Props) => {
 
   const authCheck = (url: string) => {
     const token = localStorage.getItem('refresh_token');
-    const publicPaths = ['/login'];
+    const publicPaths = ['/login', '/register'];
     const path = url.split('?')[0];
 
     if (publicPaths.includes(path)) {
       return setAuthorized(true);
     }
 
-    if (!token) {
-      setAuthorized(false);
-      return router.push({
-        pathname: '/',
-        query: { returnUrl: router.asPath },
-      });
+    if (token && token !== 'undefined') {
+      const decoded = jsonwebtoken.decode(
+        localStorage.getItem('refresh_token') ?? ''
+      ) as {
+        exp: number;
+        sub: string;
+      };
+      if (Date.now() >= decoded.exp * 1000) {
+        setAuthorized(false);
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('access_token');
+        router.push({
+          pathname: '/login',
+          query: { returnUrl: router.asPath },
+        });
+        return <p>Redirecting...</p>;
+      }
+      return setAuthorized(false);
     }
 
-    if (publicPaths.includes(path)) {
-      return setAuthorized(true);
-    }
-
-    const decoded = jsonwebtoken.decode(
-      localStorage.getItem('refresh_token') ?? ''
-    ) as {
-      exp: number;
-      sub: string;
-    };
-    if (Date.now() >= decoded.exp * 1000) {
-      setAuthorized(false);
-      localStorage.removeItem('refresh_token');
-      localStorage.removeItem('access_token');
-      return router.push({
-        pathname: '/login ',
-        query: { returnUrl: router.asPath },
-      });
-    }
-
-    return setAuthorized(false);
+    setAuthorized(false);
+    router.push({
+      pathname: '/login',
+      query: { returnUrl: router.asPath },
+    });
+    return <p>Redirecting...</p>;
   };
 
   useEffect(() => {
     authCheck(router.asPath);
-    console.log(router);
 
     router.events.on('routeChangeComplete', authCheck);
     return () => {
@@ -60,5 +56,9 @@ export const RouteGuard = ({ children }: Props) => {
     };
   }, []);
 
-  return <>{authorized && children}</>;
+  if (authorized) {
+    return <>{children}</>;
+  }
+
+  return <p>Redirecting...</p>;
 };

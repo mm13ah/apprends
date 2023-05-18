@@ -1,6 +1,6 @@
-import { RegisterForm } from '@/components/organisms';
+import { Register } from '@/components/pages';
 import { NextPage } from 'next';
 
-const Register: NextPage = () => <RegisterForm />;
+const RegisterPage: NextPage = () => <Register />;
 
-export default Register;
+export default RegisterPage;

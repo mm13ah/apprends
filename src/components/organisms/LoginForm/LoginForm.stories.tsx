@@ -8,9 +8,7 @@ export default {
   title: 'Organisms/LoginForm',
 };
 
-const Template: StoryFn<ComponentProps<typeof LoginForm>> = (args) => (
-  <LoginForm {...args} />
-);
+const Template: StoryFn<ComponentProps<typeof LoginForm>> = () => <LoginForm />;
 
 export const Basic = Template.bind({});
 Basic.args = {};

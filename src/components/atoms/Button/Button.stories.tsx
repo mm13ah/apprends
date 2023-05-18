@@ -1,8 +1,8 @@
 import React, { ComponentProps } from 'react';
 import { StoryFn } from '@storybook/react';
 
-import { Button } from './Button';
 import { ArrowRightCircleIcon } from '@heroicons/react/20/solid';
+import { Button } from './Button';
 
 export default {
   component: Button,

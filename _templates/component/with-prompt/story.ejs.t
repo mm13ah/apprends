@@ -18,4 +18,3 @@ const Template: StoryFn<ComponentProps<typeof <%=name%>>> = (args) => (
 export const Primary = Template.bind({});
 Primary.args = {};
 Primary.storyName = '<%=name%>';
-

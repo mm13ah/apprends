@@ -5,14 +5,13 @@ import { PasswordHelpText } from './PasswordHelpText';
 
 export default {
   component: PasswordHelpText,
-  title: 'Molecules/PasswordHelpText',
+  title: 'Atoms/PasswordHelpText',
 };
 
-const Template: StoryFn<ComponentProps<typeof PasswordHelpText>> = (args) => (
-  <PasswordHelpText {...args} />
+const Template: StoryFn<ComponentProps<typeof PasswordHelpText>> = () => (
+  <PasswordHelpText />
 );
 
 export const Basic = Template.bind({});
 Basic.args = {};
 Basic.storyName = 'PasswordHelpText';
-

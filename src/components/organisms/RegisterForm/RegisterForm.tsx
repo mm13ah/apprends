@@ -4,8 +4,8 @@ import {
   LockClosedIcon,
   UserPlusIcon,
 } from '@heroicons/react/20/solid';
-import { Button } from '@/components/atoms';
-import { PasswordHelpText, TextInput } from '@/components/molecules';
+import { Button, PasswordHelpText } from '@/components/atoms';
+import { TextInput } from '@/components/molecules';
 import { useFormik } from 'formik';
 
 export const RegisterForm = () => {

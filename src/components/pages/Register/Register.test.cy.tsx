@@ -1,10 +1,10 @@
-import * as stories from './TextInput.stories';
 import { composeStories } from '@storybook/testing-react';
+import * as stories from './Register.stories';
 
 const { Basic } = composeStories(stories);
 
-describe('TextInput component', () => {
+describe('Register component', () => {
   it('mounts correctly', () => {
     cy.mount(<Basic />);
-  })
+  });
 });

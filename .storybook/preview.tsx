@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react';
 import '../src/styles/globals.css';
+import React from 'react';
+import { QueryClientWrapper } from '../src/utils';
 
 const preview: Preview = {
   parameters: {
@@ -18,5 +20,13 @@ const preview: Preview = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <QueryClientWrapper>
+      <Story />
+    </QueryClientWrapper>
+  ),
+];
 
 export default preview;

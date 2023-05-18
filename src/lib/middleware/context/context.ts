@@ -2,10 +2,10 @@ import { PrismaClient } from '@prisma/client';
 import { Request } from 'express';
 import pino from 'pino';
 import { prisma, logger } from '../../services';
-import { Token, verifyAccessToken } from '../../utils';
+import { Token, verifyAccessToken } from '../../crypto';
 
 export interface ContextInput {
-  req: Request;
+  req: NextRequest;
 }
 
 interface Services {
